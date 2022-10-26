@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55a5b782-5aa3-45b5-a1d9-bf341517c3aa" name="Changes" comment="Initialize the project">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/BlackjackApplication.java" afterDir="false" />
+    <list default="true" id="55a5b782-5aa3-45b5-a1d9-bf341517c3aa" name="Changes" comment="Create main class">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/app/ApplicationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/BlackjackApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/BlackjackApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +55,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666797116657</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Create main class">
+      <created>1666797243268</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1666797243268</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -69,6 +78,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initialize the project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initialize the project" />
+    <MESSAGE value="Create main class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create main class" />
   </component>
 </project>
