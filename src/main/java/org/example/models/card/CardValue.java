@@ -2,18 +2,18 @@ package org.example.models.card;
 
 public enum CardValue {
     ACE("Ace", "A"),
-    TWO("Two", "2"),
-    THREE("Three", "3"),
-    FOUR("Four", "4"),
-    FIVE("Five", "5"),
-    SIX("Six", "6"),
-    SEVEN("Seven", "7"),
-    EIGHT("Eight", "8"),
-    NINE("Nine", "9"),
-    TEN("Ten", "10"),
-    JACK("Jack", "J"),
+    KING("King", "K"),
     QUEEN("Queen", "Q"),
-    KING("King", "K");
+    JACK("Jack", "J"),
+    TEN("Ten", "10"),
+    NINE("Nine", "9"),
+    EIGHT("Eight", "8"),
+    SEVEN("Seven", "7"),
+    SIX("Six", "6"),
+    FIVE("Five", "5"),
+    FOUR("Four", "4"),
+    THREE("Three", "3"),
+    TWO("Two", "2");
 
     private final String description;
     private final String sign;
