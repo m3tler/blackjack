@@ -9,6 +9,14 @@ public class Card {
         this.cardSuit = cardSuit;
     }
 
+    public CardValue getCardValue() {
+        return cardValue;
+    }
+
+    public CardSuit getCardSuit() {
+        return cardSuit;
+    }
+
     @Override
     public String toString() {
         return cardValue + " of " + cardSuit + "s";
