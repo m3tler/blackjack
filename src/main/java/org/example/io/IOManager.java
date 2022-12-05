@@ -1,15 +1,21 @@
 package org.example.io;
 
-import java.io.*;
-import java.util.Optional;
-import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Collections;
+import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class IOManager {
-    private final Scanner scanner;
-
-    public IOManager() {
-        scanner = new Scanner(System.in);
-    }
+    private final Logger logger = LogManager.getLogger(IOManager.class);
 
     public void print(String str) {
         System.out.print(str);
@@ -19,24 +25,29 @@ public class IOManager {
         System.out.println(str);
     }
 
-    public Optional<String> tryReadFile(String filePath) {
-        try {
-            return Optional.of(readStringFromFile(filePath));
-        } catch(FileNotFoundException e) {
-            System.out.println("File not found");
-        }
-        return Optional.empty();
-    }
-
-    private String readStringFromFile(String filePath) throws FileNotFoundException{
+    public String readStringFromFile(String filePath) {
         StringBuilder stringBuilder = new StringBuilder();
-        FileReader fileReader = new FileReader(filePath);
-        BufferedReader bufferedReader = new BufferedReader(fileReader);
-        bufferedReader.lines().forEach(line -> stringBuilder.append(line).append("\n"));
-        return stringBuilder.toString();
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
+            bufferedReader.lines().forEach(line -> stringBuilder.append(line).append("\n"));
+            logger.info("Successfully read data from file {}", filePath);
+            return stringBuilder.toString();
+        } catch (IOException e) {
+            logger.error("Failed to read data from file {} : {}", filePath, e.getMessage());
+            logger.error("Unable to read data from file {} : Asset was replaced by an empty string", filePath);
+            return "";
+        }
     }
 
-    public void close() {
-        scanner.close();
+    public Set<String> readAllFileNamesFromDirectory(String directoryName) {
+        try (Stream<Path> stream = Files.list(Paths.get(directoryName))) {
+            return stream
+                    .filter(file -> !Files.isDirectory(file))
+                    .map(Path::getFileName)
+                    .map(Path::toString)
+                    .collect(Collectors.toSet());
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+        }
+        return Collections.emptySet();
     }
 }
