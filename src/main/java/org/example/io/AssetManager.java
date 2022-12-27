@@ -1,8 +1,7 @@
-package org.example.ui;
+package org.example.io;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.example.io.IOManager;
 
 import java.util.*;
 
@@ -29,7 +28,7 @@ public class AssetManager {
         return ioManager.readStringFromFile(ASSETS_DIRECTORY + fileName);
     }
 
-    public Map<String, String> getAssets() {
-        return assets;
+    public String getAsset(String fileName) {
+        return assets.get(fileName);
     }
 }

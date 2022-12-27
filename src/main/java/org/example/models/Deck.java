@@ -5,7 +5,7 @@ import org.example.models.card.CardSuit;
 import org.example.models.card.CardValue;
 
 import java.util.Collections;
-import java.util.Optional;
+import java.util.Set;
 import java.util.Stack;
 
 public class Deck {
@@ -13,12 +13,6 @@ public class Deck {
 
     public Deck() {
         createDeck();
-    }
-
-    public Deck(int numberOfDecks) {
-        for(int i = 1; i <= numberOfDecks; i++) {
-            createDeck();
-        }
     }
 
     private void createDeck() {
@@ -29,23 +23,20 @@ public class Deck {
         }
     }
 
-    public Stack<Card> getCards() {
-        return cards;
+    public Card getCard() {
+        return this.cards.pop();
     }
 
-    public Optional<Card> getCard() {
-        if(cards.empty()) return Optional.empty();
-        return Optional.of(cards.pop());
+    public void addCards(Set<Card> cards) {
+        this.cards.addAll(cards);
     }
 
     public void shuffle() {
-        Collections.shuffle(cards);
+        Collections.shuffle(this.cards);
     }
 
     @Override
     public String toString() {
-        return "Deck{" +
-                "cards=" + cards +
-                '}';
+        return "Deck{" + "cards=" + this.cards + '}';
     }
 }

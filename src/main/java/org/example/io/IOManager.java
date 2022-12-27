@@ -10,25 +10,28 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
+import java.util.Scanner;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class IOManager {
+    private final Scanner scanner;
+
     private final Logger logger = LogManager.getLogger(IOManager.class);
 
-    public void print(String str) {
-        System.out.print(str);
+    public IOManager(Scanner scanner) {
+        this.scanner = scanner;
     }
 
-    public void printLine(String str) {
-        System.out.println(str);
+    public String getLine() {
+        return scanner.nextLine();
     }
 
     public String readStringFromFile(String filePath) {
         StringBuilder stringBuilder = new StringBuilder();
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
-            bufferedReader.lines().forEach(line -> stringBuilder.append(line).append("\n"));
+            bufferedReader.lines().forEach(line -> stringBuilder.append(line).append(System.lineSeparator()));
             logger.info("Successfully read data from file {}", filePath);
             return stringBuilder.toString();
         } catch (IOException e) {
@@ -49,5 +52,13 @@ public class IOManager {
             logger.error(e.getMessage());
         }
         return Collections.emptySet();
+    }
+
+    public void printLine(String str) {
+        System.out.println(str);
+    }
+
+    public void print(String str) {
+        System.out.print(str);
     }
 }
