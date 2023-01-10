@@ -1,8 +1,4 @@
-package org.example.models;
-
-import org.example.models.card.Card;
-import org.example.models.card.CardSuit;
-import org.example.models.card.CardValue;
+package org.example.models.cards;
 
 import java.util.Collections;
 import java.util.Set;
