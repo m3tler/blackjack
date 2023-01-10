@@ -1,4 +1,4 @@
-package org.example.models.card;
+package org.example.models.cards;
 
 public enum CardSuit {
     SPADE("Spade", "♠"),

@@ -28,6 +28,10 @@ public class IOManager {
         return scanner.nextLine();
     }
 
+    public void pressEnter() {
+        scanner.nextLine();
+    }
+
     public String readStringFromFile(String filePath) {
         StringBuilder stringBuilder = new StringBuilder();
         try(BufferedReader bufferedReader = new BufferedReader(new FileReader(filePath))) {
